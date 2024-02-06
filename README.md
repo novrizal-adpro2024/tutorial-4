@@ -25,7 +25,7 @@ There are some ways i can take to improve my code's security, such as:
 
 a. **Multi Factor Authentication.** This is a strong authentication mechanism to verify the identity of users.
 
-b. **More specific input validations.** So far, i have only validate the 0 input at product's quantity.
+b. **More specific input validations.** So far, i have only validate the negative input for product's quantity.
 
 ---
 
