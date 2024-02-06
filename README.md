@@ -22,7 +22,9 @@ The goal of unit testing is to verify the correctness of the individual unit.
 Moreover, it appears to me that there is a need for enhancing the security of my code. 
 I must ensure its resilience against cyberattacks and unwanted intrusions.
 There are some ways i can take to improve my code's security, such as:
+
 a. **Multi Factor Authentication.** This is a strong authentication mechanism to verify the identity of users.
+
 b. **More specific input validations.** So far, i have only validate the 0 input at product's quantity.
 
 ---
