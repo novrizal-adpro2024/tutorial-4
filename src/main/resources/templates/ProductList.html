@@ -24,10 +24,16 @@
             <td th:text="${product.productName}"></td>
             <td th:text="${product.productQuantity}"></td>
             <td>
-                <a th:href="@{/product/edit/{idProduct}(idProduct=${product.productId})}" class="btn btn-primary btn-sm mb-3">
-                    Edit
-                </a>
+                <div class="btn-group" role="group">
+                    <a th:href="@{/product/edit/{idProduct}(idProduct=${product.productId})}" class="btn btn-success btn-sm mb-3 mx-1">
+                        Edit
+                    </a>
+                    <a th:href="@{/product/delete/{idProduct}(idProduct=${product.productId})}" class="btn btn-danger btn-sm mb-3 mx-1">
+                        Delete
+                    </a>
+                </div>
             </td>
+
         </tr>
         </tbody>
     </table>
