@@ -21,6 +21,9 @@ The goal of unit testing is to verify the correctness of the individual unit.
 
 Moreover, it appears to me that there is a need for enhancing the security of my code. 
 I must ensure its resilience against cyberattacks and unwanted intrusions.
+There are some ways i can take to improve my code's security, such as:
+a. **Multi Factor Authentication.** This is a strong authentication mechanism to verify the identity of users.
+b. **More specific input validations.** So far, i have only validate the 0 input at product's quantity.
 
 ---
 
@@ -31,7 +34,7 @@ It would be good if you learned about code coverage.
 Code coverage is a metric that can help you understand how much of your source is tested. 
 If you have 100% code coverage, does that mean your code has no bugs or errors?**
 
-I feel
+I feel special
 
 **2. Suppose that after writing the CreateProductFunctionalTest.java along with the corresponding test case, 
 you were asked to create another functional test suite that verifies the number of items in the product list. You decided to create a new Java class similar to the prior functional test suites with the same setup procedures and instance variables.
