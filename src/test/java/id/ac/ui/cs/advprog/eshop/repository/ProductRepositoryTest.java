@@ -75,9 +75,10 @@ class ProductRepositoryTest {
         Product editedProduct = new Product();
         editedProduct.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
         editedProduct.setProductName("Sampo Cap Bango");
-        editedProduct.setProductQuantity(0);
+        editedProduct.setProductQuantity(3);
 
         productRepository.edit(editedProduct);
+        product = productRepository.findById("eb558e9f-1c39-460e-8860-71af6af63bd6");
         assertEquals(editedProduct.getProductId(), product.getProductId());
         assertEquals(editedProduct.getProductName(), product.getProductName());
         assertEquals(editedProduct.getProductQuantity(), product.getProductQuantity());
