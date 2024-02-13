@@ -31,7 +31,7 @@ class ProductServiceImplTest {
     }
 
     @Test
-    void testCreateProduct() {
+    void testCreateProduct() {  // added new service tests (forgot to commit before)
         Product product = new Product();
         when(productRepository.create(product)).thenReturn(product);
 
@@ -40,7 +40,7 @@ class ProductServiceImplTest {
     }
 
     @Test
-    void testFindAllProducts() {
+    void testFindAllProducts() {    // added new service tests (forgot to commit before)
         Product product = new Product();
         when(productRepository.create(product)).thenReturn(product);
         productService.create(product);
@@ -54,7 +54,7 @@ class ProductServiceImplTest {
     }
 
     @Test
-    void testFindProductById() {
+    void testFindProductById() {    // added new service tests (forgot to commit before)
         Product product = new Product();
         String productId = product.getProductId();
         when(productRepository.findById(productId)).thenReturn(product);
@@ -64,7 +64,7 @@ class ProductServiceImplTest {
     }
 
     @Test
-    void testEditProduct() {
+    void testEditProduct() {    // added new service tests (forgot to commit before)
         Product product = new Product();
         when(productRepository.edit(product)).thenReturn(product);
 
@@ -73,7 +73,7 @@ class ProductServiceImplTest {
     }
 
     @Test
-    void testDeleteProduct() {
+    void testDeleteProduct() {  // added new service tests (forgot to commit before)
         Product product = new Product();
         when(productRepository.delete(product)).thenReturn(product);
 
