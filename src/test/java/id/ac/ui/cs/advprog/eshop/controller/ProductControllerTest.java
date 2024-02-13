@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.Mock;
 import org.springframework.ui.Model;
@@ -61,8 +62,8 @@ class ProductControllerTest {
     void testDeleteProduct() {
         Product product = new Product();
         String productId = product.getProductId();
-        String expectedViewName = "redirect:../list";
-        String actualViewName = productController.deleteProductGet(productId, model);
+        String expectedViewName = "redirect:/product/list";
+        String actualViewName = productController.deleteProductGet(product, model, productId);
         assertEquals(expectedViewName, actualViewName);
     }
 
@@ -70,10 +71,9 @@ class ProductControllerTest {
     void testEditProductPage() {
         Product product = new Product();
         String productId = product.getProductId();
-        when(productService.findById(productId)).thenReturn(product);
-
-        String expectedViewName = "EditProduct";
-        String actualViewName = productController.editProductPage(productId, model);
+        Mockito.lenient().when(productService.findById(productId)).thenReturn(product);
+        String expectedViewName = "editProduct";
+        String actualViewName = productController.editProductPage(model, productId);
         assertEquals(expectedViewName, actualViewName);
     }
 
@@ -81,8 +81,8 @@ class ProductControllerTest {
     void testEditProductList() {
         Product product = new Product();
         String productId = product.getProductId();
-        String expectedViewName = "redirect:../list";
-        String actualViewName = productController.editProductPost(productId, product, model);
+        String expectedViewName = "redirect:/product/list";
+        String actualViewName = productController.editProductPost(product, model, productId);
         assertEquals(expectedViewName, actualViewName);
     }
 }
