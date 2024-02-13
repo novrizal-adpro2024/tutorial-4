@@ -35,7 +35,7 @@ class ProductControllerTest {
 
     @Test
     void testCreateProductPage() {  // added new controller tests (forgot to commit before)
-        String expectedViewName = "createProduct";
+        String expectedViewName = "CreateProduct";
         String actualViewName = productController.createProductPage(model);
         assertEquals(expectedViewName, actualViewName);
     }
@@ -52,7 +52,7 @@ class ProductControllerTest {
     void testProductListPage() {    // added new controller tests (forgot to commit before)
         List<Product> productList = new ArrayList<>();
         when(productService.findAll()).thenReturn(productList);
-        String expectedViewName = "productList";
+        String expectedViewName = "ProductList";
         String actualViewName = productController.productListPage(model);
         assertEquals(expectedViewName, actualViewName);
     }
@@ -71,7 +71,7 @@ class ProductControllerTest {
         Product product = new Product();
         String productId = product.getProductId();
         Mockito.lenient().when(productService.findById(productId)).thenReturn(product);
-        String expectedViewName = "editProduct";
+        String expectedViewName = "EditProduct";
         String actualViewName = productController.editProductPage(model, productId);
         assertEquals(expectedViewName, actualViewName);
     }
