@@ -52,7 +52,6 @@ class ProductControllerTest {
     void testProductListPage() {
         List<Product> productList = new ArrayList<>();
         when(productService.findAll()).thenReturn(productList);
-
         String expectedViewName = "productList";
         String actualViewName = productController.productListPage(model);
         assertEquals(expectedViewName, actualViewName);
