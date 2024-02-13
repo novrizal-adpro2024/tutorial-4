@@ -97,7 +97,7 @@ class ProductRepositoryTest {
     }
 
     @Test
-    void testFindById() {
+    void testFindById() {   // added new repository tests (forgot to commit before)
         Product product = new Product();
         product.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
         product.setProductName("Sampo Cap Bambang");
@@ -111,7 +111,7 @@ class ProductRepositoryTest {
     }
 
     @Test
-    void testFindByIdIfMoreThanOneProduct() {
+    void testFindByIdIfMoreThanOneProduct() {   // added new repository tests (forgot to commit before)
         Product product1 = new Product();
         product1.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
         product1.setProductName("Sampo Cap Bambang");
@@ -131,7 +131,7 @@ class ProductRepositoryTest {
     }
 
     @Test
-    void testFindByIdIfDoesNotExist() {
+    void testFindByIdIfDoesNotExist() { // added new repository tests (forgot to commit before)
         Product product1 = new Product();
         product1.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
         product1.setProductName("Sampo Cap Bambang");
@@ -151,7 +151,7 @@ class ProductRepositoryTest {
     }
 
     @Test
-    void testFindByIdIfEmpty() {
+    void testFindByIdIfEmpty() {    // added new repository tests (forgot to commit before)
         String randomId = UUID.randomUUID().toString();
 
         Product findById = productRepository.findById(randomId);

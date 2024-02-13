@@ -25,6 +25,7 @@ class HomePageControllerTest {
     void testHomepage() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.view().name("HomePage"));
+                .andExpect(MockMvcResultMatchers.view().name("HomePage")); // added new controller tests (forgot to commit before)
     }
+
 }

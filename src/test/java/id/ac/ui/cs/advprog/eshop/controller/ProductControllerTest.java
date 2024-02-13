@@ -34,14 +34,14 @@ class ProductControllerTest {
     }
 
     @Test
-    void testCreateProductPage() {
+    void testCreateProductPage() {  // added new controller tests (forgot to commit before)
         String expectedViewName = "createProduct";
         String actualViewName = productController.createProductPage(model);
         assertEquals(expectedViewName, actualViewName);
     }
 
     @Test
-    void testCreateProductPost() {
+    void testCreateProductPost() {  // added new controller tests (forgot to commit before)
         Product product = new Product();
         String expectedViewName = "redirect:list";
         String actualViewName = productController.createProductPost(product, model);
@@ -49,17 +49,16 @@ class ProductControllerTest {
     }
 
     @Test
-    void testProductListPage() {
+    void testProductListPage() {    // added new controller tests (forgot to commit before)
         List<Product> productList = new ArrayList<>();
         when(productService.findAll()).thenReturn(productList);
-
         String expectedViewName = "productList";
         String actualViewName = productController.productListPage(model);
         assertEquals(expectedViewName, actualViewName);
     }
 
     @Test
-    void testDeleteProduct() {
+    void testDeleteProduct() {  // added new controller tests (forgot to commit before)
         Product product = new Product();
         String productId = product.getProductId();
         String expectedViewName = "redirect:/product/list";
@@ -68,7 +67,7 @@ class ProductControllerTest {
     }
 
     @Test
-    void testEditProductPage() {
+    void testEditProductPage() {    // added new controller tests (forgot to commit before)
         Product product = new Product();
         String productId = product.getProductId();
         Mockito.lenient().when(productService.findById(productId)).thenReturn(product);
@@ -78,7 +77,7 @@ class ProductControllerTest {
     }
 
     @Test
-    void testEditProductList() {
+    void testEditProductList() {    // added new controller tests (forgot to commit before)
         Product product = new Product();
         String productId = product.getProductId();
         String expectedViewName = "redirect:/product/list";
