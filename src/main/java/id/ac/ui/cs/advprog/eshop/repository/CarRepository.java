@@ -38,13 +38,13 @@ public class CarRepository {
             Car car = carData.get(i);
             if (car.getCarId().equals(id)) {
                 //Update the existing car with the new information
-                car.setCarName(updatedCar.getCarName());
-                car.setCarColor(updatedCar.getCarColor());
-                car.setCarQuantity(updatedCar.getCarQuantity());
+                carData.set(i, updatedCar);
                 return car;
             }
         }
         return null; //Handle the case where the car is not found
     }
-    public void delete(String carId) { carData.removeIf(car -> car.getCarId().equals(carId));}
+    public void delete(String carId) {
+        carData.removeIf(car -> car.getCarId().equals(carId));
+    }
 }
