@@ -92,7 +92,7 @@ Example: from `carData.set(i, updatedCar);` in the `CarRepository.java` to
 `car.setCarName(updatedCar.getCarName());`
 
 `car.setCarColor(updatedCar.getCarColor());`
-g
+
 `car.setCarQuantity(updatedCar.getCarQuantity());`
 
 c. NOT APPLYING **Liskov Substitution Principle (LSP)** ---
