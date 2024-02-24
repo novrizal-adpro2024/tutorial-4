@@ -37,6 +37,8 @@ e. **Dependency Inversion Principle (DIP)** --- Means that entities must depend 
 It states that the high-level module must not depend on the low-level module, but they should depend on abstractions.
 In my `CarController`, have tried to change the `CarServiceImpl` to `CarService`.
 
+---
+
 **2. Explain the advantages of applying SOLID principles to your project with examples.**
 
 The SOLID principles aims to create more maintainable, scalable, and flexible program. 
@@ -71,6 +73,8 @@ e. **Dependency Inversion Principle (DIP)** ---
 Advantage: Flexibility, ease of testing, and maintaining the code.
 
 Example: In my `CarController`, have tried to change the `CarServiceImpl` to `CarService`.
+
+---
 
 **3. Explain the disadvantages of not applying SOLID principles to your project with examples.**
 
