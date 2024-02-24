@@ -17,14 +17,14 @@ Here are those principles:
 a. **Single Responsibility Principle (SRP)** --- Means that a class should have one and only one reason to change (should have only one job).
 With this in mind, I have to separate `CarController`' from `ProductController`' so that each file will only focus on one job/responsibility. 
 Now, each file has its own responsibility.
-As for the `CarController.java' is to handle car related behaviors and properties, 
-while the `ProductController.java' has the responsibility to handle product related behaviors and properties.
+As for the `CarController.java` is to handle car related behaviors and properties, 
+while the `ProductController.java` has the responsibility to handle product related behaviors and properties.
 
 b. **Open-Closed Principle (OCP)** --- Means that objects or entities should be open for extension but closed for modification.
 This implies that a class should be extendable without modifying the class itself.
 I have incorporated the ability to set the ID in the constructor of the `Car` class, allowing for extension.
 If there's a need to change the ID-setting mechanism, there's no requirement to alter the source code.
-Moreover, introducing the update method that modifies the Car object as a whole, rather than individual attributes,
+Moreover, introducing the update method that modifies the `Car` object as a whole, rather than individual attributes,
 enhances the flexibility of the CarRepository class for extension without the necessity to make changes to the source code.
 
 c. **Liskov Substitution Principle (LSP)** --- Means that every subclass or derived class should be substitutable for their base or parent class.
@@ -89,9 +89,11 @@ b. NOT APPLYING **Open/Closed Principle (OCP)** ---
 Disadvantage: The code will be fragile and needs frequent changes.
 
 Example: from `carData.set(i, updatedCar);` in the `CarRepository.java` to 
-`car.setCarName(updatedCar.getCarName());
- car.setCarColor(updatedCar.getCarColor());
- car.setCarQuantity(updatedCar.getCarQuantity());`
+`car.setCarName(updatedCar.getCarName());`
+
+`car.setCarColor(updatedCar.getCarColor());`
+
+`car.setCarQuantity(updatedCar.getCarQuantity());`
 
 c. NOT APPLYING **Liskov Substitution Principle (LSP)** ---
 
