@@ -9,6 +9,8 @@
 You are allowed to modify the source code according to the principles you want to implement. 
 Please answer the following questions:**
 
+--- 
+
 **1. Explain what principles you apply to your project!**
 
 I tried to apply all the 5 principles that I learned at the class.
