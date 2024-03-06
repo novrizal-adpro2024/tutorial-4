@@ -1,127 +1,98 @@
-# Module 3: Maintainability & OO Principles
+# Module 4: Refactoring & TDD
 
 > #### Novrizal Airsyahputra - 2206081780 - Advance Programming B
 
 ---
 
 ### Reflection
-**Apply the SOLID principles you have learned. 
-You are allowed to modify the source code according to the principles you want to implement. 
-Please answer the following questions:**
-
---- 
-
-**1. Explain what principles you apply to your project!**
-
-I tried to apply all the 5 principles that I learned at the class.
-Here are those principles:
-
-a. **Single Responsibility Principle (SRP)** --- Means that a class should have one and only one reason to change (should have only one job).
-With this in mind, I have to separate `CarController`' from `ProductController`' so that each file will only focus on one job/responsibility. 
-As for the `CarController.java` is to handle car related behaviors and properties, 
-while the `ProductController.java` has the responsibility to handle product related behaviors and properties.
-
-b. **Open-Closed Principle (OCP)** --- Means that objects or entities should be open for extension but closed for modification.
-This implies that a class should be extendable without modifying the class itself.
-I have incorporated the ability to set the ID in the constructor of the `Car` class, allowing for extension.
-If there's a need to change the ID-setting mechanism, there's no requirement to alter the source code.
-Moreover, introducing the update method that modifies the `Car` object as a whole, rather than individual attributes,
-enhances the flexibility of the CarRepository class for extension without the necessity to make changes to the source code.
-
-c. **Liskov Substitution Principle (LSP)** --- Means that every subclass or derived class should be substitutable for their base or parent class.
-I have tried to make `CarController` not to extends `ProductController` because each of them are using different model.
-
-d. **Interface Segregation Principle (ISP)** --- Means that a client should never be forced to implement an interface that it does not use,
-or clients should not be forced to depend on methods they do not use.
-I have tried to make 2 different interface, which called `CarService` and `ProductService`.
-
-e. **Dependency Inversion Principle (DIP)** --- Means that entities must depend on abstractions, not on concretions.
-It states that the high-level module must not depend on the low-level module, but they should depend on abstractions.
-In my `CarController`, have tried to change the `CarServiceImpl` to `CarService`.
 
 ---
 
-**2. Explain the advantages of applying SOLID principles to your project with examples.**
+**1. Reflect based on Percival (2017) proposed self-reflective questions (in “Principles and Best Practice of Testing” submodule, 
+chapter “Evaluating Your Testing Objectives”), whether this TDD flow is useful enough for you or not. 
+If not, explain things that you need to do next time you make more tests.**
 
-The SOLID principles aims to create more maintainable, scalable, and flexible program. 
-Here are several advantages that I got from applying SOLID principles to my project:
+Percival (2017) proposes three main objectives that we need to constantly evaluate on our tests: 
 
-a. **Single Responsibility Principle (SRP)** ---
+**a. Correctness**
 
-Advantage: The code will be more maintainable and much easier to understand because each class has only one reason to change.
+- Do I have enough functional tests to reassure myself that my application really works, from point of view of the user?
+From the user's POV, i think i already have enough functional tests. 
+So, i can reassure myself that my app is working fine.
 
-Example: Make separate `CarController` and `ProductController` classes, each with a single responsibility. 
+- Am I testing all edge cases thoroughly?
+Yes, though i think there are lots of improvements that can be done.
 
-b. **Open/Closed Principle (OCP)** ---
+- Do I have tests that check whether all my components fit together properly? Could some integrated tests do this, or are functional tests enough?
+I believe my  functional tests should be enough to check whether all my components fit together properly.
+However, if any gaps persist, integrated tests could potentially offer additional assistance.
 
-Advantage: Allows to add new functionality without altering existing code, promoting stability.
+**b. Maintainability**
 
-Example: `carData.set(i, updatedCar);` in the `CarRepository.java`.
+- Are my tests giving me the confidence to refactor my code, fearlessly and frequently?
+Yes, my tests giving me the confidence to refactor my code.
+I have implemented comprehensive tests, including acceptance tests, and ensured thorough coverage of edge cases.
 
-c. **Liskov Substitution Principle (LSP)** ---
+- Are my tests helping me to drive out a good design? If I have a lot of integration tests but less unit tests, do I need to make more unit tests to get better feedback on my code design?
+Effective tests not only verify that the code functions but also guide its design. 
+Tests can compel us to think about organizing code for testability, often leading to better design. 
+While integration tests are crucial to ensure different parts of the code work well together, 
+unit tests remain essential for individually testing components.
 
-Advantage: This promotes code reusability and consistency.
+**c. Productive Workflow**
 
-Example: `CarController` not to extends `ProductController` because each of them are using different model.
+- Are my feedback cycles as fast as I would like them? When do I get warned about bugs, and is there any practical way to make that happen sooner?
+Yes, it is pretty much as fast as i would like them.
+I believe it is enough to ensure that my tests can detect errors, 
+and the corresponding feedback clearly indicates the specific test.
 
-d. **Interface Segregation Principle (ISP)** ---
+- Is there some way that I could write faster integration tests that would give me feedback quicker?
+Yes, by limiting the scope (focus on testing only the components that interact with some parts).
 
-Advantage: Prevents a class from being burdened with unnecessary methods and promotes a more modular design.
+- Can I run a subset of the full test suite when I need to?
+Yes, i can. Mark an important tests and set the test suite to only run the specific test.
 
-Example: 2 different interface, which called `CarService` and `ProductService`.
-
-e. **Dependency Inversion Principle (DIP)** ---
-
-Advantage: Flexibility, ease of testing, and maintaining the code.
-
-Example: In my `CarController`, have tried to change the `CarServiceImpl` to `CarService`.
+- Am I spending to much time waiting for tests to run, and thus less time in a productive flow state?
+No, i am not. 
+While waiting for the tests to run, with Test-Driven Development i can do multitask and work on the other tasks
 
 ---
 
-**3. Explain the disadvantages of not applying SOLID principles to your project with examples.**
+**2. You have created unit tests in Tutorial. 
+Now reflect whether your tests have successfully followed F.I.R.S.T. principle or not. 
+If not, explain things that you need to do the next time you create more tests.**
 
-Not applying SOLID principles can make the codebase less maintainable, harder to extend, and more error-prone. 
-Here are the several disadvantages:
+The F.I.R.S.T. principle is a set of guidelines for writing effective unit tests.
 
-a. NOT APPLYING **Single Responsibility Principle (SRP)** ---
+**Fast (F)**
 
-Disadvantage: The code will be difficult to maintain and understand.
+Reflection: The unit tests I create run swiftly, allowing them to be executed more frequently 
+and providing immediate feedback on whether recent changes impact the code's functionality.
 
-Example: `ProductController` handles both `CarController` and `ProductController` itself. So it has more than one responsibility.
+**Isolated/Independent (I)**
 
-b. NOT APPLYING **Open/Closed Principle (OCP)** ---
+Reflection: Each test I develop can run independently of others. 
+They are not reliant on shared states or the sequence in which they are executed.
 
-Disadvantage: The code will be fragile and needs frequent changes.
+**Repeatable (R)**
 
-Example: from `carData.set(i, updatedCar);` in the `CarRepository.java` to 
+Reflection: Tests that i created produce consistent results regardless of when or where they are run.
 
-`car.setCarName(updatedCar.getCarName());`
+**Self-Validating (S)**
 
-`car.setCarColor(updatedCar.getCarColor());`
+Reflection: Tests that i created has a clear output (PASSED/FAILED). 
+With this, there is no need for human interpretation of the outputs.
 
-`car.setCarQuantity(updatedCar.getCarQuantity());`
+**Timely (T)**
 
-c. NOT APPLYING **Liskov Substitution Principle (LSP)** ---
+Reflection: The tests I create are written just before the production code that makes them pass.
 
-Disadvantage: The code will not be reusable and it has a low consistency.
-
-Example: `class CarController extends ProductController`, meanwhile the `ProductController` and `CarController` each are using different model.
-
-d. NOT APPLYING **Interface Segregation Principle (ISP)** ---
-
-Disadvantage: A class is being burdened with unnecessary methods.
-
-Example: If `ProductService` implements irrelevant method from `CarService` (or they combine it).
-
-e. NOT APPLYING **Dependency Inversion Principle (DIP)** ---
-
-Disadvantage: It will be harder to test and to maintain.
-
-Example: `CarServiceImpl` is depend on the `CarRepository` than its interface 
-or when `ProductServiceImpl`is depend on the `ProductRepository` than its interface.
+In conclusion, it is crucial for code to adhere to the FIRST principles. 
+Prioritizing those aspects not only ensures effective test suites but also supports sustainable software development 
+by minimizing risks, improving readability, and facilitating smooth integration of changes. 
 
 ---
 
 ### References
-1. https://docs.google.com/document/d/1pVus4jkPJNfPBxAgZHrTVonw2Qxp001k/edit
-2. https://www.digitalocean.com/community/conceptual-articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design
+1. https://docs.google.com/document/d/1-fsOyyajozE2QSV-QBEA_YR_ZZn9yhKr/edit
+2. https://chat.openai.com/
